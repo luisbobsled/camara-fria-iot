@@ -1,0 +1,2 @@
+# Bibliotecas do projeto Wokwi
+DHT sensor library for ESPx
