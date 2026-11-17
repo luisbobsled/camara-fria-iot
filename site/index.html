@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Câmara Fria · Monitoramento IoT</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>Câmara Fria</h1>
+      <p class="sub">Dispositivo <strong id="device">—</strong> · ESP32 + DHT22</p>
+    </div>
+    <div id="status" class="status status--carregando">
+      <span class="ponto"></span><span id="status-texto">Conectando…</span>
+    </div>
+  </header>
+
+  <section id="banner-alerta" class="banner" hidden>
+    <strong>ALERTA</strong>
+    <span id="banner-texto">Condição fora do limite</span>
+  </section>
+
+  <main>
+    <section class="cards">
+      <article class="card" id="card-temperatura">
+        <h2>Temperatura</h2>
+        <p class="valor"><span id="temp-valor">--</span><span class="unidade" id="temp-unidade">°C</span></p>
+        <p class="meta">Limite: <span id="temp-limite">8</span> °C</p>
+      </article>
+      <article class="card" id="card-umidade">
+        <h2>Umidade relativa</h2>
+        <p class="valor"><span id="umid-valor">--</span><span class="unidade" id="umid-unidade">%</span></p>
+        <p class="meta">Limite: <span id="umid-limite">70</span> %</p>
+      </article>
+      <article class="card card--info">
+        <h2>Última atualização</h2>
+        <p class="hora" id="ultima-hora">--:--:--</p>
+        <p class="meta" id="ultima-ha">aguardando dados</p>
+      </article>
+    </section>
+
+    <section class="painel">
+      <h2>Histórico</h2>
+      <div class="grafico"><canvas id="grafico"></canvas></div>
+    </section>
+
+    <section class="painel">
+      <h2>Últimas leituras</h2>
+      <div class="tabela-wrap">
+        <table>
+          <thead><tr><th>Horário</th><th>Temperatura</th><th>Umidade</th><th>Situação</th></tr></thead>
+          <tbody id="tabela"><tr><td colspan="4">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>Painel consulta a API a cada <span id="freq">5</span> s · dados simulados no Wokwi</footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
