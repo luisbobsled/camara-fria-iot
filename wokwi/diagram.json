@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Grupo Câmara Fria",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -86.1,
+      "left": 186.6,
+      "attrs": { "temperature": "4.5", "humidity": "55" }
+    },
+    { "type": "wokwi-led", "id": "ledAlerta", "top": 34.8, "left": 291.8, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "ledTx", "top": 34.8, "left": 349.4, "attrs": { "color": "limegreen" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 128.75,
+      "left": 230.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 157.55,
+      "left": 288,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 236.6,
+      "left": 172.8,
+      "attrs": { "color": "blue", "label": "Pausar TX" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v19.2", "h-230.4", "v38.4" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v28.8", "h-96" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v0" ] ],
+    [ "esp:26", "r1:1", "orange", [ "h0" ] ],
+    [ "r1:2", "ledAlerta:A", "orange", [ "v0" ] ],
+    [ "esp:27", "r2:1", "purple", [ "h0" ] ],
+    [ "r2:2", "ledTx:A", "purple", [ "v0" ] ],
+    [ "ledAlerta:C", "esp:GND.3", "black", [ "v0" ] ],
+    [ "ledTx:C", "esp:GND.3", "black", [ "v0" ] ],
+    [ "btn1:1.l", "esp:14", "blue", [ "h0" ] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
