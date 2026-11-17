@@ -1,0 +1,4 @@
+# Usado só se você publicar pela Supabase CLI (supabase functions deploy api).
+# O ESP32 e o painel chamam a API sem JWT; a escrita é protegida pelo header x-device-token.
+[functions.api]
+verify_jwt = false
