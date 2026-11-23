@@ -286,9 +286,7 @@ A API valida o `device_id`, a grandeza e a faixa do valor (temperatura de -40 a 
 - O DHT22 tem precisão de ±0,5 °C e ±2 a 5% de UR.
 
 ## Integrantes
-| Nome | 
-|---|---|
-| Luis Filipe Seixas de Souza |
-| Felipe Traskini Rocha| 
-| Samuel Alves vieira| 
-| Davi Samuel Rodrigues de Oliveira|
+
+
+Luis Filipe Seixas de Souza, Felipe Traskini Rocha, Samuel Alves vieira, Davi Samuel Rodrigues de Oliveira
+
